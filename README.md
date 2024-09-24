@@ -1,7 +1,3 @@
-# Creating a README.md file for the Real-Time Chat App project
-
-readme_content = """
-
 # Real-Time Chat App
 
 A real-time chat application built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This app features real-time messaging, user authentication, and various chat functionalities designed to enhance user experience.
