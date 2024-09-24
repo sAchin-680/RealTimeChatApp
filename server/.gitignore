@@ -1,0 +1,44 @@
+# Node.js dependencies
+/node_modules/
+
+# Environment variables
+.env
+
+# Log files
+logs
+*.log
+npm-debug.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+dist/
+build/
+
+# Test coverage
+coverage/
+*.lcov
+
+# IDE and editor files
+.vscode/
+
+
+# Dependency directories
+/.pnp
+.pnp.js
+
+# Temporary files
+tmp/
+temp/
+
+# Other files to ignore
+*.tgz
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Ignore any local configuration files
+config/local.json

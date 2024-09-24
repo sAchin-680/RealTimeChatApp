@@ -1,0 +1,55 @@
+# Node.js dependencies
+/node_modules/
+
+# Build directories
+/build/
+/dist/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE and editor files
+.vscode/
+
+# Coverage directory used by tools like istanbul
+/coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# Miscellaneous files
+*.tgz
+*.zip
+*.tar
+*.gz
+*.rar
+
+# Ignore local development files
+/.pnp
+.pnp.js
+
+# Ignore build artifacts
+*.css.map
+*.js.map
+
+# Ignore specific test files
+*.test.js
+*.spec.js
+
+# Ignore local configuration files
+config/local.json
+
