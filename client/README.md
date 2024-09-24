@@ -1,70 +1,126 @@
-# Getting Started with Create React App
+# Real-Time Chat App (Frontend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Real-Time Chat App! This application allows users to communicate in real-time through private and group chats, media sharing, and more. This README will guide you through setting up the frontend of the project.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Real-time messaging with WebSockets
+- Private and group chats
+- Media sharing (images, videos)
+- User authentication (JWT-based)
+- Typing indicators and presence indicators
+- Notifications for new messages
+- Dark/Light mode toggle
+- Multi-language support
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- React
+- Redux
+- Socket.IO
+- Firebase (for notifications)
+- Axios (for HTTP requests)
+- React Router (for routing)
+- CSS/SCSS (for styling)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+Follow the steps below to set up the frontend for the Real-Time Chat App on your local machine.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Node.js** (v14 or later)
+- **npm** (comes with Node.js)
+- **Git** (optional, for version control)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Clone the repository:**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/your-username/real-time-chat-app.git
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Navigate to the frontend directory:**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   ```bash
+   cd real-time-chat-app/frontend
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. **Install the required dependencies:**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Configure Firebase:**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   - Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+   - Obtain your Firebase configuration object and update it in `src/firebase.jsx`.
 
-### Code Splitting
+2. **Set up environment variables:**
+   - Create a `.env` file in the root of the `frontend` directory.
+   - Add the following variables:
+     ```plaintext
+     REACT_APP_FIREBASE_API_KEY=your_firebase_api_key
+     REACT_APP_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+     REACT_APP_FIREBASE_PROJECT_ID=your_firebase_project_id
+     REACT_APP_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+     REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+     REACT_APP_FIREBASE_APP_ID=your_firebase_app_id
+     ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Running the Application
 
-### Analyzing the Bundle Size
+To start the application in development mode, run the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+npm start
+```
 
-### Making a Progressive Web App
+This will start the development server and open the application in your default web browser at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Testing
 
-### Advanced Configuration
+To run tests for the frontend application, use the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm test
+```
 
-### Deployment
+This will run all tests using Jest. For continuous testing in watch mode, run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+npm test -- --watch
+```
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature/YourFeature`.
+3. Make your changes and commit them: `git commit -m 'Add your feature'`.
+4. Push to the branch: `git push origin feature/YourFeature`.
+5. Open a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Thank you for using the Real-Time Chat App! For further assistance, please open an issue on GitHub or contact the maintainers.

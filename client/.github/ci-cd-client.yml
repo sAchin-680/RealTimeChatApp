@@ -1,0 +1,37 @@
+# .github/workflows/ci-cd-client.yml
+name: React CI/CD
+
+on:
+  push:
+    branches:
+      - main  # or your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # or your desired Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Vercel
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}  # Set this in your GitHub repo secrets
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}  # Set this in your GitHub repo secrets
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}  # Set this in your GitHub repo secrets
+        run: |
+          npx vercel --prod --token=$VERCEL_TOKEN --confirm --project=$VERCEL_PROJECT_ID --org=$VERCEL_ORG_ID

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
+import FileUpload from './FileUpload'; // Import the FileUpload component
 
 const ENDPOINT = 'http://localhost:5000'; // Update with your backend endpoint
 let socket;
@@ -122,6 +123,9 @@ const Chat = ({ selectedChat, userId }) => {
         onChange={handleMessageChange}
       />
       <button onClick={handleSendMessage}>Send</button>
+
+      {/* Add the file upload input */}
+      <FileUpload />
     </div>
   );
 };

@@ -14,14 +14,29 @@ const socketHandler = (io) => {
     });
 
     // Integrate message-related socket events
-    messageSocketEvents(socket, io, usersTyping);
+    messageSocketEvents(socket, io, userTyping);
+
+    // WebRTC signaling events
+    socket.on('callUser', (data) => {
+      io.to(data.to).emit('callUser', {
+        signal: data.signal,
+        from: data.from,
+      });
+    });
+
+    socket.on('callAccepted', (data) => {
+      io.to(data.to).emit('callAccepted', {
+        signal: data.signal,
+        from: data.from,
+      });
+    });
 
     // Handle disconnect
     socket.on('disconnect', () => {
       console.log('User disconnected:', socket.id);
-      usersTyping.forEach((chatId, userId) => {
+      userTyping.forEach((chatId, userId) => {
         io.to(chatId).emit('userDisconnected', { userId });
-        usersTyping.delete(userId);
+        userTyping.delete(userId);
       });
     });
   });
