@@ -8,7 +8,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const http = require('http');
 const socketIo = require('socket.io');
+const socketHandler = require('./sockets/socketHandler');
 const User = require('./models/User');
+const messageRoutes = require('./routes/messageRoute');
 
 // 3. Initialize Express Application
 const app = express();
@@ -17,7 +19,7 @@ const io = socketIo(server);
 
 // 4. Database Connection
 mongoose
-  .connect(process.env.MONGODB_URL)
+  .connect(process.env.MONGO_URL)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
@@ -51,6 +53,7 @@ io.on('connection', (socket) => {
 // 11. API Versioning
 // Example: app.use('/api/v1', v1Routes);
 // Example: app.use('/api/v2', v2Routes);
+app.use('/api/v1/chats', messageRoutes);
 
 // 12. Caching, Pagination & Filtering
 // Implement caching logic (e.g., Redis), and pagination filtering in route handlers
@@ -84,6 +87,12 @@ io.on('disconnect', () => {
   console.log('User disconnected');
 });
 
+socketIo(server, {
+  cors: {
+    origin: '*', // Update this with your client-side URL if needed
+    methods: ['GET', 'POST'],
+  },
+});
 // 18. Internationalization (i18n)
 // const i18n = require('i18n');
 // app.use(i18n.init);  // Multi-language support
@@ -92,4 +101,4 @@ io.on('disconnect', () => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
-// 19. Server Listen and Initialization
+/// 20. Graceful Shutdown
